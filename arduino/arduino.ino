@@ -5,7 +5,7 @@ float sample1_number, given_voltage, reference_value1, voltage_number, sample1 =
 long time, timeinitial, timefinal;
 
 int s = 2;
-
+String message;
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 void setup() {
@@ -32,6 +32,21 @@ void loop() {
   energy = 0;
 
   if (digitalRead(s) == HIGH) {
+
+    Serial.println("face");
+    lcd.setCursor(0,1);  
+    lcd.clear();
+    lcd.print("Detecting face...");
+  
+    while (!Serial.available()) {
+    // do nothing
+    }
+    // read the string from Python
+    message = Serial.readString();
+  
+    lcd.clear();
+    lcd.setCursor(0,1);  
+    lcd.print("User : "+message);
     while (digitalRead(s) != LOW) {
       timeinitial = millis();
       for (int i = 0; i < 200; i++) {

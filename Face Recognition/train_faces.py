@@ -7,6 +7,7 @@ people = []
 DIR = r'.\faces'
 for file in os.listdir(DIR):
     people.append(file)
+print(people)
 
 features = []
 labels = []
@@ -48,6 +49,6 @@ face_recognizer = cv.face_LBPHFaceRecognizer.create()
 # # Train the recognizer on feature list and label list
 face_recognizer.train(features , labels)
 
-face_recognizer.save('face_trained.yml')
-np.save('features.npy' , features)
-np.save('labels.npy' , features)
+face_recognizer.save('./face_trained.yml')
+np.save('./features.npy' , features)
+np.save('./labels.npy' , features)

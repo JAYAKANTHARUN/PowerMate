@@ -24,19 +24,6 @@ else:
         largest_num = max([int(f[:-4]) for f in filenames])
         i = largest_num + 1
 
-# while True:
-#     isTrue, frame = capture.read()
-#     frame1 = frame.copy()
-#     frame_with_text = cv.putText(frame, str(i), (100, 100), cv.FONT_HERSHEY_SIMPLEX, 3, (0, 255, 0), 2, cv.LINE_4)
-#     cv.imshow('Frame' , frame_with_text)
-
-#     if cv.waitKey(10) & 0xFF == ord('d'):
-#         break
-#     if cv.waitKey(1) & 0xFF == ord(' '):
-#         filename = os.path.join(images_dir, f"{i}.png")
-#         cv.imwrite(filename, frame1, [cv.IMWRITE_JPEG_QUALITY, 100])
-#         i += 1
-
 for i in range(x):
     isTrue, frame = capture.read()
     frame1 = frame.copy()
@@ -48,7 +35,7 @@ for i in range(x):
     filename = os.path.join(images_dir, f"{i}.png")
     cv.imwrite(filename, frame1, [cv.IMWRITE_JPEG_QUALITY, 100])
     i += 1
-    cv.waitKey(10)
+    cv.waitKey(15)
 
 # capture2.release()
 capture.release()
