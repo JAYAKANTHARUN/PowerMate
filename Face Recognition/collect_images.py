@@ -2,6 +2,7 @@ import cv2 as cv
 import os
 
 name = input("Enter name: ")
+host = input("Enter host: ")
 
 # Reading videos
 capture = cv.VideoCapture(0)  # 0 denote primary cam. 1 denote secondary cam
@@ -13,7 +14,7 @@ cwd = os.getcwd()
 print("Current working directory:", cwd)
 
 # Create a new directory for the images, if it doesn't already exist
-images_dir = os.path.join(cwd, "faces", name)
+images_dir = os.path.join(cwd, "faces", host , name)
 if not os.path.exists(images_dir):
     os.makedirs(images_dir)
 else:
