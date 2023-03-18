@@ -1,5 +1,5 @@
 
-float sample1_number, given_voltage, reference_value1, voltage_number, sample1 = 0, voltage, actual_voltage, reference_value2, current_number, sample2 = 0, current, actual_current, current_val, power;
+float sample1_number, given_voltage, reference_value1, voltage_number, sample1 = 0, voltage, actual_voltage, reference_value2, current_number, sample2 = 0, current, actual_current, current_val, energy = 0, power;
 long time, timeinitial, timefinal;
 
 void setup() {
@@ -44,7 +44,7 @@ void loop() {
 
   sample1 = 0;
   sample2 = 0;
-
+  energy = 0;
 
   timeinitial = millis();
   for (int i = 0; i < 200; i++) {
@@ -72,14 +72,19 @@ void loop() {
   time = timefinal - timeinitial;
 
 
+  energy += power * time / 1000;
+
 
   Serial.print("voltage : ");
   Serial.println(actual_voltage);
 
   Serial.print("current : ");
   Serial.println(actual_current);
+
+  Serial.print("energy : ");
+  Serial.println(energy);
 }
-}
+
 // sample1 = 0;
 // sample2 = 0;
 
