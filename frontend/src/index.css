@@ -1,12 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
 
+
 body{
   background-color: #a7a8e7 ;
-  transition: background-color 2s ease;
+  transition: background-color 3s ease;
 }
 body:hover {
-  background-color: #b9baeb;
+  background-color: #bcbce1;
+}
+body:not(:hover) {
+  background-color: #9192cc;
 }
 
 button[type="submit"] {
@@ -32,7 +36,6 @@ button[type="submit"] {
 button[type="submit"]:hover {
   background-color: #6b078c;
   transform: scale(1.1);
-
 }
 label {
   display: block;
@@ -91,6 +94,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
+  height:80px;
 }
 
 nav a {
