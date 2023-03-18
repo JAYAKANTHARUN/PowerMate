@@ -10,7 +10,7 @@ const Navbar = () => {
   {
   return (
     <nav className="navbar">
-      <h1>Energy Meter</h1>
+      <h1>PowerMate</h1>
       <div className="links">
         <Link to="/">Home</Link>
         <Link to="/usage">Usage</Link>
@@ -22,7 +22,7 @@ const Navbar = () => {
 else{
   return (
     <nav className="navbar">
-      <h1>Energy Meter</h1>
+      <h1>PowerMate</h1>
       <div className="links">
       <Link to="/l">Login</Link>
        
