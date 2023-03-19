@@ -1,20 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+img {
+  max-width: 40%;
+  height: auto;
+  margin-top: -280px;
+  margin-right: -250px;
+  border: 5px solid rgb(63, 4, 126);  
+  border-radius: 200px;
+}
+.home {
+  text-align: left;
+  font-size: 25px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  color: #333333;
+  text-align:start;
+  margin-left:-400px;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  text-shadow: 2px 2px 4px rgba(162, 89, 194, 0.792);
+}
 
-
-
-body{
-  background-color: #a7a8e7 ;
+body {
+  background-color: #a7a8e7;
   transition: background-color 3s ease;
 }
+
 body:hover {
   background-color: #bcbce1;
 }
+
 body:not(:hover) {
   background-color: #9192cc;
 }
 
 button[type="submit"] {
-  background-color: #724aaf; /* Green */
+  background-color: #724aaf;
+  /* Green */
   border: none;
   color: white;
   padding: 15px 32px;
@@ -25,8 +45,8 @@ button[type="submit"] {
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 5px;
-  margin-left:220px;
-  margin-top:20px;
+  margin-left: 220px;
+  margin-top: 20px;
   box-shadow: 0px 4px 5px rgba(186, 55, 149, 0.83);
   transition: transform 0.2s ease-in-out;
 
@@ -37,6 +57,7 @@ button[type="submit"]:hover {
   background-color: #6b078c;
   transform: scale(1.1);
 }
+
 label {
   display: block;
   font-weight: bold;
@@ -44,7 +65,9 @@ label {
 }
 
 /* Style the input */
-input[type=text], input[type=email], input[type=password] {
+input[type=text],
+input[type=email],
+input[type=password] {
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
@@ -53,9 +76,11 @@ input[type=text], input[type=email], input[type=password] {
   margin-bottom: 20px;
   font-size: 16px;
 }
+
 a {
   color: #007bff;
   text-decoration: none;
+  font-weight: bold;
 }
 
 a:hover {
@@ -63,38 +88,42 @@ a:hover {
 }
 
 a:visited {
-  color: #621074;
+  color: #3e1f66;
 }
 
 a:focus,
 a:active {
   outline: none;
-  text-decoration: underline;
-}
-.logintitle{
-    font-size: 100px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #333;
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 50px;
-    text-shadow: 2px 2px 4px rgba(196, 72, 212, 0.668);
 }
 
+.logintitle {
+  font-size: 100px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  text-shadow: 2px 2px 4px rgba(196, 72, 212, 0.668);
+}
+
+
 /* base styles */
-* {
+/* * {
   margin: 0;
   font-family: "Quicksand";
   color: #500b91;
-}
+  font-weight: bolder;
+} */
+
 nav {
   background-color: #a7a8e7;
-  color: #fff;
+  color: #521f85;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  height:80px;
+  height: 80px;
+  font-weight: bold;
 }
 
 nav a {
@@ -126,6 +155,7 @@ nav ul li a {
 nav ul li a:hover {
   text-decoration: underline;
 }
+
 .content {
   max-width: 600px;
   margin: 40px auto;
@@ -138,15 +168,18 @@ nav ul li a:hover {
   margin: 20px 0;
   border-bottom: 1px solid #fafafa;
 }
+
 .blog-preview:hover {
-  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
 }
+
 .blog-preview h2 {
   font-size: 20px;
   color: #33051c;
   margin-bottom: 8px;
 }
-.blog-preview a{
+
+.blog-preview a {
   text-decoration: none;
 }
 
@@ -156,9 +189,11 @@ nav ul li a:hover {
   color: #3f0919;
   margin-bottom: 10px;
 }
+
 .blog-details div {
   margin: 20px 0;
 }
+
 .blog-details button {
   background: #47081b;
   color: #fff;
@@ -174,16 +209,21 @@ nav ul li a:hover {
   margin: 0 auto;
   text-align: center;
 }
+
 .create label {
   text-align: left;
   display: block;
 }
+
 .create h2 {
   font-size: 20px;
   color: #f1356d;
   margin-bottom: 30px;
 }
-.create input, .create textarea, .create select {
+
+.create input,
+.create textarea,
+.create select {
   width: 100%;
   padding: 6px 10px;
   margin: 10px 0;
@@ -191,6 +231,7 @@ nav ul li a:hover {
   box-sizing: border-box;
   display: block;
 }
+
 .create button {
   background: #f1356d;
   color: #fff;
