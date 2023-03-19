@@ -3,6 +3,7 @@ import time
 import numpy as np
 import cv2 as cv
 import os
+import datetime
 
 haar_cascade = cv.CascadeClassifier('haar_face.xml')
 
@@ -66,19 +67,40 @@ def detect_face():
         if cv.waitKey(10) & 0xFF == ord('d'):
             break
 
-
 from pymongo import MongoClient
 client = MongoClient("mongodb://localhost:27017/")
 
 mydatabase = client['emeter']
 mycollection = mydatabase['users']
+usagecollection = mydatabase['usage']
 
-def change_energy(name , energy):
-    # define the update operation
-    update_operation = { "$inc": { "energy": energy } }
+def change_energy(name, energy, time):
+    # Get the current time
+    end_time = datetime.datetime.now()
 
-    # update the first matching document found
-    result = mycollection.update_one({ "name": name }, update_operation)
+    # Calculate the start time by subtracting the given time from the end time
+    start_time = end_time - datetime.timedelta(seconds=time)
+
+    # Define the update operation to increment the energy field
+    update_operation = {"$inc": {"energy": energy}}
+
+    # Update the first matching document in the mycollection collection
+    result = mycollection.update_one({"name": name}, update_operation)
+
+    # Create a new document for the usage collection
+    usage_doc = {
+        "name": name,
+        "energy": energy,
+        "start_time": start_time,
+        "end_time": end_time
+    }
+
+    # Insert the new document into the usage collection
+    usage_result = usagecollection.insert_one(usage_doc)
+
+    # Return the result of the update operation
+    return result
+
 
 # Open the serial port
 ser = serial.Serial('COM4', 9600)
@@ -89,7 +111,10 @@ while True:
 
     if data in people:
         energy = float(ser.readline().decode().strip())
-        change_energy(name , energy)
+        print(energy)
+        time = float(ser.readline().decode().strip())/1000
+        print(time)
+        change_energy(name , energy , time)
 
     if data == 'face':
         name = detect_face()

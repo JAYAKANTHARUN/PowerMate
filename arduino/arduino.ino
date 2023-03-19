@@ -2,7 +2,7 @@
 #include <LiquidCrystal_I2C.h>
 
 float sample1_number, given_voltage, reference_value1, voltage_number, sample1 = 0, voltage, actual_voltage, reference_value2, current_number, sample2 = 0, current, actual_current, current_val, energy = 0, power;
-long time, timeinitial, timefinal;
+long time, timeinitial, timefinal , total_time;
 
 int s = 2, flag = 0;
 String message;
@@ -30,7 +30,7 @@ void loop() {
   sample1 = 0;
   sample2 = 0;
   energy = 0;
-
+  total_time = 0;
   if (digitalRead(s) == HIGH) {
     flag = 1;
     Serial.println("face");
@@ -39,19 +39,9 @@ void loop() {
     lcd.print("Detecting face...");
 
     while (!Serial.available()) {
-      if (digitalRead(s) == LOW) {
-        lcd.clear();
-        lcd.setCursor(0, 0);
-        lcd.print("Switch interrupt");
-        delay(3000);
-        break;
-        flag = 0;
-      }
+      ;
     }
-    if(flag==1)
-      message = Serial.readString();
-    else
-      message = "nouser";
+    message = Serial.readString();
 
     lcd.clear();
     lcd.setCursor(0, 1);
@@ -81,7 +71,7 @@ void loop() {
 
       timefinal = millis();
       time = timefinal - timeinitial;
-
+      total_time += time;
       energy += power * time / 1000;
 
       // Serial.print("voltage : ");
@@ -104,6 +94,7 @@ void loop() {
       flag = 0;
       Serial.println(message);
       Serial.println(energy);
+      Serial.println(total_time/1000);
       energy = 0;
       message = "nouser";
     }
