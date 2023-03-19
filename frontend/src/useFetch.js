@@ -8,7 +8,7 @@ const useFetch = (url) => {
   useEffect(() => {
     const abortCont = new AbortController();
 
-    setTimeout(() => {
+    
       fetch(url, { signal: abortCont.signal })
       .then(res => {
         if (!res.ok) { // error coming back from server
@@ -29,8 +29,7 @@ const useFetch = (url) => {
           setIsPending(false);
           setError(err.message);
         }
-      })
-  },1000);    
+      });
     
 
     // abort the fetch

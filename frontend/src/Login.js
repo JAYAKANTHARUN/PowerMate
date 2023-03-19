@@ -1,37 +1,53 @@
 import { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 
+//const {lis} = require('./lis.js');
 const Login = () => {
+  const history = useHistory();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const user = { username,password};
+        console.log(user);
+        fetch('http://192.168.43.49:5000/login', {
+          
+        method: 'POST',
+        body: JSON.stringify({
+          username:username,
+          password:password,
+      
+        }),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        }
+      
+  
+  
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const user = { username, password };
-    console.log(user);
-    fetch('http://192.168.43.49:5000/login', {
-      method: 'POST',
-      body: JSON.stringify({
-        username: username,
-        password: password,
-      }),
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      }
-    })
-      .then(res => {
-        return res.json();// format:staus:0 or 1
-      })
-      .then(data => {
-        console.log(data.status)
-        localStorage.setItem('lis', data.status);
+  
+
+        }) .then(res => {
+            return res.json();// format:staus:0 or 1
+          })
+          .then(data => {
+            console.log(data.status)
+            localStorage.setItem('lis',data.status );
+            localStorage.setItem('username',username );
+            if(data.status )
+            {
+            history.push('/usage')
+            }else{
+              history.push('/l')
+            }
+          //continue applying logic from here***
+          })
+          .catch(err => {
+            console.log(err)
+          })
+    }
         
-        //continue applying logic from here***
-      })
-      .catch(err => {
-        console.log(err)
-      })
-  }
 
   return (
     <div>
