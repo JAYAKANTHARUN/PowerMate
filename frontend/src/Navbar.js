@@ -10,9 +10,24 @@ import { useState } from 'react';
 const Navbar = () => {
   
   
+ 
+  if (lis===1)
+  {
   return (
     <nav className="navbar">
-      <h1>Energy Meter</h1>
+      <h1>PowerMate</h1>
+      <div className="links">
+        <Link to="/">Home</Link>
+        <Link to="/usage">Usage</Link>
+        
+      </div>
+    </nav>
+  );
+}
+else{
+  return (
+    <nav className="navbar">
+      <h1>PowerMate</h1>
       <div className="links">
       <Link to="/l">Login</Link>
        
