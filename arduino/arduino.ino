@@ -4,7 +4,7 @@
 float sample1_number, given_voltage, reference_value1, voltage_number, sample1 = 0, voltage, actual_voltage, reference_value2, current_number, sample2 = 0, current, actual_current, current_val, energy = 0, power;
 long time, timeinitial, timefinal;
 
-int s = 2;
+int s = 2, flag = 0;
 String message;
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
@@ -32,21 +32,30 @@ void loop() {
   energy = 0;
 
   if (digitalRead(s) == HIGH) {
-
+    flag = 1;
     Serial.println("face");
-    lcd.setCursor(0,1);  
+    lcd.setCursor(0, 1);
     lcd.clear();
     lcd.print("Detecting face...");
-  
+
     while (!Serial.available()) {
-    // do nothing
+      if (digitalRead(s) == LOW) {
+        lcd.clear();
+        lcd.setCursor(0, 0);
+        lcd.print("Switch interrupt");
+        delay(3000);
+        break;
+        flag = 0;
+      }
     }
-    // read the string from Python
-    message = Serial.readString();
-  
+    if(flag==1)
+      message = Serial.readString();
+    else
+      message = "nouser";
+
     lcd.clear();
-    lcd.setCursor(0,1);  
-    lcd.print("User : "+message);
+    lcd.setCursor(0, 1);
+    lcd.print("User : " + message);
     while (digitalRead(s) != LOW) {
       timeinitial = millis();
       for (int i = 0; i < 200; i++) {
@@ -75,14 +84,14 @@ void loop() {
 
       energy += power * time / 1000;
 
-      Serial.print("voltage : ");
-      Serial.println(actual_voltage);
+      // Serial.print("voltage : ");
+      // Serial.println(actual_voltage);
 
-      Serial.print("current : ");
-      Serial.println(actual_current);
+      // Serial.print("current : ");
+      // Serial.println(actual_current);
 
-      Serial.print("energy : ");
-      Serial.println(energy);
+      // Serial.print("energy : ");
+      // Serial.println(energy);
 
       lcd.setCursor(0, 0);
       lcd.print("Energy : ");
@@ -90,6 +99,13 @@ void loop() {
       lcd.print(energy);
       lcd.setCursor(14, 0);
       lcd.print("Ws");
+    }
+    if (flag == 1) {
+      flag = 0;
+      Serial.println(message);
+      Serial.println(energy);
+      energy = 0;
+      message = "nouser";
     }
   }
 }

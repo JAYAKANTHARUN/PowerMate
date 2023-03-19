@@ -18,14 +18,15 @@ print(people)
 
 face_recognizer = cv.face.LBPHFaceRecognizer_create()
 face_recognizer.read('face_trained.yml')
-capture = cv.VideoCapture(0)  
+
 
 def detect_face():
-
+    capture = cv.VideoCapture(0)  
     recognized_faces = []
 
     while True:
         isTrue, img = capture.read()
+    
         gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 
         # Detect the face in image
@@ -66,6 +67,19 @@ def detect_face():
             break
 
 
+from pymongo import MongoClient
+client = MongoClient("mongodb://localhost:27017/")
+
+mydatabase = client['emeter']
+mycollection = mydatabase['users']
+
+def change_energy(name , energy):
+    # define the update operation
+    update_operation = { "$inc": { "energy": energy } }
+
+    # update the first matching document found
+    result = mycollection.update_one({ "name": name }, update_operation)
+
 # Open the serial port
 ser = serial.Serial('COM4', 9600)
 while True:
@@ -75,7 +89,7 @@ while True:
 
     if data in people:
         energy = float(ser.readline().decode().strip())
-        # change_energy(name , energy)
+        change_energy(name , energy)
 
     if data == 'face':
         name = detect_face()
