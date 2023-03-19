@@ -52,6 +52,7 @@ const Login = () => {
   return (
     <div>
       <div className="logintitle">
+        <br />
         <h2>Login Page</h2>
       </div>
 

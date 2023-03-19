@@ -15,7 +15,7 @@ const Navbar2 = () => {
      window.location.href="/";}
   return (<div>
     <nav className="navbar">
-      <h1>Energy Meter</h1>
+      <h1>PowerMate</h1>
       <div className="links">
         <Link to="/">Home</Link>
         <Link to="/usage">Usage</Link>

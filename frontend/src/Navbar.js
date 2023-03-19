@@ -12,7 +12,7 @@ const Navbar = () => {
   
   return (
     <nav className="navbar">
-      <h1>Energy Meter</h1>
+      <h1>PowerMate</h1>
       <div className="links">
       <Link to="/l">Login</Link>
        
