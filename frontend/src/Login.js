@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
+
 //const {lis} = require('./lis.js');
 const Login = () => {
+  const history = useHistory();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -41,8 +43,30 @@ const Login = () => {
   }
 
 
+        }) .then(res => {
+            return res.json();// format:staus:0 or 1
+          })
+          .then(data => {
+            console.log(data.status)
+            localStorage.setItem('lis',data.status );
+            localStorage.setItem('username',username );
+            if(data.status )
+            {
+            history.push('/usage')
+            }else{
+              history.push('/l')
+            }
+          //continue applying logic from here***
+          })
+          .catch(err => {
+            console.log(err)
+          })
+    }
+        
+       
 
   return (
+    
     <div>
       <div class="logintitle">
         <h2>Login Page</h2>
