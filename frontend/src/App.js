@@ -1,20 +1,17 @@
 import Navbar from './Navbar';
-import Navbar2 from './Navbar2';
 import Home from './Home';
 import Login from './Login';
 import Usage from './Usage';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-localStorage.setItem('lis',0 );
-localStorage.setItem('username','' );
 
-function App() {const lis=localStorage.getItem('lis' );
-console.log(lis);
+function App() {
   return (
     <Router>
-      
-     
+      <div className="App">
+        <Navbar />
+
         <div className="content">
           <Switch>
             <Route exact path="/">
@@ -25,15 +22,15 @@ console.log(lis);
             </Route>
             <Route exact path="/usage">
               <Usage />
-              </Route>
-            
-            
-            
-            
+            </Route>
+
+
+
+
           </Switch>
-        
+        </div>
       </div>
-      
+
     </Router>
   );
 }
