@@ -38,4 +38,5 @@ It also have a webpage to monitor the total usage of every individuals. This sys
    ![WhatsApp Image 2023-03-19 at 2 47 23 PM](https://user-images.githubusercontent.com/97159197/226165638-39ee84fe-6b8b-4680-9d6a-e50391a14015.jpeg)
 5. The data can then be viewed in the Flask server dashboard and used to distribute electricity bills among individuals according to their usage.
 6. The energy usage can be monitored using a react website.
-
+   ![Screenshot 2023-03-19 145808](https://user-images.githubusercontent.com/97159197/226166026-92cb7e3e-4199-403b-bed4-456aee6bc729.png)
+   ![Screenshot 2023-03-19 145836](https://user-images.githubusercontent.com/97159197/226166033-1c659acb-274e-4b41-801d-976b156dde01.png)
