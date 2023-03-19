@@ -2,7 +2,7 @@
 
 ### Description
 This project uses Arduino, a current sensor, and OpenCV to measure energy usage and recognize the person who turned on the switch. 
-The system is designed to track individual energy usage, which can be used to distribute electricity bills among individuals according to their usage.
+The system is designed to track individual's electricity usage, which can be used to split electricity bills among individuals according to their usage.
 It also have a webpage to monitor the total usage of every individuals. This system is so useful in places where many peoples stays together like hostels .
 
 ### Components required.
