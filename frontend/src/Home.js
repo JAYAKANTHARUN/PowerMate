@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 
 //const {lis} = require('./lis.js');
 import { Link,useHistory } from "react-router-dom";
@@ -6,6 +8,7 @@ import {  useState} from 'react';
 import Navbar from './Navbar';
 import Navbar2 from './Navbar2';
 
+>>>>>>> 13cc4d521e5273c8861a33ac996edd89749fe2ab
 const Home = () => {
   const history = useHistory();
   
@@ -24,11 +27,18 @@ const Home = () => {
 
     
     <div className="home">
-      <h1>HOME PAGE</h1>
+      <h1>What is PowerMate ?</h1><br />
+      <ul>
+        <li> A electronic device with face detector to track the energy consumed by each individual in a organization</li><br />
+        <li> Controls the energy consumption by an individual</li><br />
+        <li> Efficient utilization of energy</li><br />
+        <li> Reduces the total expense of an individual</li><br />
+      </ul>
+      <img src={process.env.PUBLIC_URL + '/robo.png'} alt="My Image" style={{ float: 'right' }} />
     </div>
     </div>
     
   );
 }
- 
+
 export default Home;

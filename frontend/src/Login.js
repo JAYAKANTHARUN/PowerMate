@@ -68,7 +68,7 @@ const Login = () => {
   return (
     
     <div>
-      <div class="logintitle">
+      <div className="logintitle">
         <h2>Login Page</h2>
       </div>
 
