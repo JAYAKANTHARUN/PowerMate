@@ -2,13 +2,15 @@
 #include <LiquidCrystal_I2C.h>
 
 float sample1_number, given_voltage, reference_value1, voltage_number, sample1 = 0, voltage, actual_voltage, reference_value2, current_number, sample2 = 0, current, actual_current, current_val, energy = 0, power;
-long time, timeinitial, timefinal , total_time;
+long time, timeinitial, timefinal, total_time;
 
-int s = 2, flag = 0;
+int s = 2, flag = 0, relayPin = 7;
 String message;
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 void setup() {
+  // set the relay pin as an output
+  pinMode(relayPin, OUTPUT);
 
   lcd.init();
   lcd.clear();
@@ -17,7 +19,6 @@ void setup() {
   Serial.begin(9600);
 
   pinMode(s, INPUT);
-
   given_voltage = 2.10 * 1000;
   sample1_number = analogRead(A2);
   reference_value1 = given_voltage / sample1_number;
@@ -26,6 +27,7 @@ void setup() {
 }
 
 void loop() {
+  digitalWrite(relayPin, HIGH);
 
   sample1 = 0;
   sample2 = 0;
@@ -43,6 +45,7 @@ void loop() {
     }
     message = Serial.readString();
 
+    digitalWrite(relayPin, LOW);
     lcd.clear();
     lcd.setCursor(0, 1);
     lcd.print("User : " + message);
@@ -74,14 +77,14 @@ void loop() {
       total_time += time;
       energy += power * time / 1000;
 
-      // Serial.print("voltage : ");
-      // Serial.println(actual_voltage);
+      Serial.print("voltage : ");
+      Serial.println(actual_voltage);
 
-      // Serial.print("current : ");
-      // Serial.println(actual_current);
+      Serial.print("current : ");
+      Serial.println(actual_current);
 
-      // Serial.print("energy : ");
-      // Serial.println(energy);
+      Serial.print("energy : ");
+      Serial.println(energy);
 
       lcd.setCursor(0, 0);
       lcd.print("Energy : ");
@@ -94,9 +97,10 @@ void loop() {
       flag = 0;
       Serial.println(message);
       Serial.println(energy);
-      Serial.println(total_time/1000);
+      Serial.println(total_time / 1000);
       energy = 0;
       message = "nouser";
+      digitalWrite(relayPin, HIGH);
     }
   }
 }

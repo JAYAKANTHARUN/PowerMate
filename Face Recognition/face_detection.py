@@ -78,29 +78,31 @@ def change_energy(name, energy, time):
     # Get the current time
     end_time = datetime.datetime.now()
 
-    # Calculate the start time by subtracting the given time from the end time
-    start_time = end_time - datetime.timedelta(seconds=time)
+    if energy>0:
+        # Calculate the start time by subtracting the given time from the end time
+        start_time = end_time - datetime.timedelta(seconds=time)
 
-    # Define the update operation to increment the energy field
-    update_operation = {"$inc": {"energy": energy}}
+        # Define the update operation to increment the energy field
+        update_operation = {"$inc": {"energy": energy}}
 
-    # Update the first matching document in the mycollection collection
-    result = mycollection.update_one({"name": name}, update_operation)
+        # Update the first matching document in the mycollection collection
+        result = mycollection.update_one({"name": name}, update_operation)
 
-    # Create a new document for the usage collection
-    usage_doc = {
-        "name": name,
-        "energy": energy,
-        "start_time": start_time,
-        "end_time": end_time
-    }
+        # Create a new document for the usage collection
+        usage_doc = {
+            "name": name,
+            "energy": energy,
+            "start_time": start_time,
+            "end_time": end_time
+        }
 
-    # Insert the new document into the usage collection
-    usage_result = usagecollection.insert_one(usage_doc)
+        # Insert the new document into the usage collection
+        usage_result = usagecollection.insert_one(usage_doc)
 
-    # Return the result of the update operation
-    return result
-
+        # Return the result of the update operation
+        return result
+    else:
+        return 
 
 # Open the serial port
 ser = serial.Serial('COM4', 9600)
