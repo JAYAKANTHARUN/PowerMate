@@ -1,5 +1,8 @@
 # Energy Measurement and Recognition System
 
+### What we are trying to solve?
+This project tries to solve the problem of fairly distributing electricity bills among individuals living in shared spaces like hostels, dormitories, or apartments. In such spaces, it can be challenging to determine how much each person should pay for electricity bills, as some individuals might consume more electricity than others. By tracking individual energy usage using this project, it becomes possible to allocate electricity bills based on actual usage, ensuring that each person pays only for the electricity they consume.
+
 ### Description
 This project uses Arduino, a current sensor, and OpenCV to measure energy usage and recognize the person who turned on the switch. 
 The system is designed to track individual's electricity usage, which can be used to split electricity bills among individuals according to their usage.
