@@ -41,3 +41,10 @@ This project utilizes an Arduino board, a current sensor, and OpenCV to measure 
 6. The energy usage can be monitored using a react website.
    ![Screenshot 2023-03-19 145808](https://user-images.githubusercontent.com/97159197/226166026-92cb7e3e-4199-403b-bed4-456aee6bc729.png)
    ![Screenshot 2023-03-19 145836](https://user-images.githubusercontent.com/97159197/226166033-1c659acb-274e-4b41-801d-976b156dde01.png)
+   
+   
+### Live Demo
+
+
+  https://user-images.githubusercontent.com/94242227/226717222-adde1128-090b-41a7-b6a2-28a6a855d94a.mp4
+
