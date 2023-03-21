@@ -3,6 +3,9 @@
 ### What we are trying to solve?
 This project tries to solve the problem of fairly distributing electricity bills among individuals living in shared spaces like hostels, dormitories, or apartments. In such spaces, it can be challenging to determine how much each person should pay for electricity bills, as some individuals might consume more electricity than others. By tracking individual energy usage using this project, it becomes possible to allocate electricity bills based on actual usage, ensuring that each person pays only for the electricity they consume.
 
+### Description
+This project utilizes an Arduino board, a current sensor, and OpenCV to measure energy usage and identify the individual who turned on a switch. The system is designed to track an individual's electricity usage, which can be used to fairly distribute electricity bills among people living in shared spaces, such as hostels or dormitories. The system also includes a webpage that allows for the monitoring of total usage for each individual, making it useful for tracking energy consumption in shared living situations.
+
 ### Components used.
 
 - Arduino board: This is the microcontroller board that runs the code and controls the various components of the system.
