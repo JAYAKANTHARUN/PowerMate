@@ -20,7 +20,7 @@ const Home = () => {
 
   return (
     <div className="App">
-  {lis==0? <div><Navbar/></div>:<div><Navbar2/></div>}
+  {lis==1? <div><Navbar2/></div>:<div><Navbar/></div>}
     <div className="home">
       <br /><br /><br /><br /><br />
       <h1>Track your Energy usage through PowerMate</h1>

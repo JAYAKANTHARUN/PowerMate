@@ -6,7 +6,7 @@ import Usage from './Usage';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-localStorage.setItem('lis',1 );
+
 localStorage.setItem('username','' );
 
 function App() {const lis=localStorage.getItem('lis' );
