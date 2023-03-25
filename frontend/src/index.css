@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 img {
-  max-width: 40%;
+  max-width: 30%;
   height: auto;
-  margin-top: -280px;
-  margin-right: -250px;
+  margin-top: -200px;
+  margin-right: 0px;
   border: 5px solid rgb(63, 4, 126);  
-  border-radius: 200px;
+  border-radius: 300px;
 }
 .home {
   text-align: left;
@@ -13,7 +13,7 @@ img {
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   color: #333333;
   text-align:start;
-  margin-left:-400px;
+  margin-left:0px;
   margin-top: 10px;
   margin-bottom: 50px;
   text-shadow: 2px 2px 4px rgba(162, 89, 194, 0.792);
@@ -45,17 +45,33 @@ button[type="submit"] {
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 5px;
-  margin-left: 220px;
+  margin-left: 310px;
   margin-top: 20px;
   box-shadow: 0px 4px 5px rgba(186, 55, 149, 0.83);
   transition: transform 0.2s ease-in-out;
 
 }
-
+form{
+  max-width: 50%;
+  margin:auto
+}
 /* Hover effect */
 button[type="submit"]:hover {
   background-color: #6b078c;
   transform: scale(1.1);
+}
+.click {
+  background-color: #a7a8e7; /* Green */
+  border: none;
+  color: rgb(238, 13, 13);
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
 }
 
 label {
@@ -157,8 +173,8 @@ nav ul li a:hover {
 }
 
 .content {
-  max-width: 600px;
-  margin: 40px auto;
+  max-width:100%;
+  /* margin: 40px auto; */
   padding: 20px;
 }
 
